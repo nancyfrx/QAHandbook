@@ -106,6 +106,8 @@ def calc_opportunity_cost(auto_days, manual_days, innovation_value):
 
 ### 七、ROI驱动的自动化策略
 #### 投资优先级矩阵
+![image](https://github.com/user-attachments/assets/17c295b2-7ef7-4b8a-b70d-ab8f0b97418d)
+
 ![](https://cdn.nlark.com/yuque/0/2025/png/538409/1749730348898-90b47990-6887-4d06-b979-b49da8da84b5.png)
 
 **行动指南：**
