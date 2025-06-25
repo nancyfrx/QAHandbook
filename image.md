@@ -1,21 +1,19 @@
 ```mermaid
-journey
-    title AIOps落地四阶段
-    section 数据基建
-      "指标埋点" :5
-      "日志标准化" :4
-      "追踪链路打通" :3
-    section 分析能力
+sequenceDiagram
+    participant A as 企业测试系统
+    participant B as 银行环境
+    A->>B: 环境预热（保持会话）
+    loop 2小时测试窗口
+        A->>A: 执行P0用例（智能调度）
+        A->>B: 发送请求（带追踪ID）
+        B-->>A: 返回响应
+        A->>A: 协议指纹比对
+        alt 检测异常
+            A->>A: 自动生成修复补丁
+            A->>B: 重试请求
+        end
+    end
+    A->>B: 生成银行专属报告
 
-      异常检测:5
-       根因定位:4
-      预测预警:3
-    section 自动闭环
-      预案管理:5
-      智能决策:4
-      自动修复:3
-    section 持续验证
-      性能门禁:5
-      混沌工程:4
-      线上压测:3
+
 ```
