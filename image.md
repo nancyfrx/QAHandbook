@@ -1,19 +1,17 @@
 ```mermaid
-sequenceDiagram
-    participant A as 企业测试系统
-    participant B as 银行环境
-    A->>B: 环境预热（保持会话）
-    loop 2小时测试窗口
-        A->>A: 执行P0用例（智能调度）
-        A->>B: 发送请求（带追踪ID）
-        B-->>A: 返回响应
-        A->>A: 协议指纹比对
-        alt 检测异常
-            A->>A: 自动生成修复补丁
-            A->>B: 重试请求
-        end
-    end
-    A->>B: 生成银行专属报告
-
-
+gantt
+    title 内存优化时间线
+    dateFormat  YYYY-MM-DD
+    section 问题阶段
+    OOM频发 :2023-01-01, 30d
+    GC暂停高 :2023-02-01, 30d
+    
+    section 优化阶段
+    堆外内存分析 :2023-02-10, 7d
+    Redis连接池改造 :2023-02-18, 5d
+    off-heap缓存 :2023-02-25, 10d
+    
+    section 效果
+    零OOM事件 :2023-03-01, 60d
+    GC暂停<5ms :2023-03-01, 60d
 ```
